@@ -1,4 +1,4 @@
-# Enlaz Payroll Models
+# Payroll Models
 
 This folder contains core data models and a small privacy utility for handling PII.
 

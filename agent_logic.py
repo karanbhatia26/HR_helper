@@ -11,8 +11,17 @@ class PayrollOrchestrator:
         self._last_hours_claimed: float | None = None
 
     def extract_data(self, file_content: str) -> Timesheet:
-        normalized = file_content.lower()
-        hours = 50.0 if "overtime" in normalized else 40.0
+        import re
+
+        # Try to find "Total Hours: <number>" pattern
+        match = re.search(r"Total Hours:\s*([\d\.]+)", file_content, re.IGNORECASE)
+        if match:
+            hours = float(match.group(1))
+        else:
+            # Fallback logic if explicit total is missing
+            normalized = file_content.lower()
+            hours = 50.0 if "overtime" in normalized else 40.0
+
         scrubbed_content = PrivacyVault.scrub_pii(file_content)
         return Timesheet(
             id=str(uuid4()),

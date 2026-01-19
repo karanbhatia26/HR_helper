@@ -1,4 +1,4 @@
-# Enlaz Sentinel Project Documentation
+# AI Payroll Orchestrator Documentation
 
 ## 1. System Flow Diagram
 
@@ -19,7 +19,7 @@ flowchart LR
 
 **Hybrid Architecture: Why We Separate AI and Math**
 
-In building Enlaz Sentinel, we adopted a hybrid architecture that splits responsibilities between deterministic code and artificial intelligence based on the nature of the task. LLMs (Large Language Models) are powerful reasoning engines but can be unreliable calculators, prone to "hallucinations" when performing precise arithmetic operations.
+In building this system, we adopted a hybrid architecture that splits responsibilities between deterministic code and artificial intelligence based on the nature of the task. LLMs (Large Language Models) are powerful reasoning engines but can be unreliable calculators, prone to "hallucinations" when performing precise arithmetic operations.
 
 To solve this, we strictly isolate the **payroll calculation core** from the **AI layer**. We use pure, deterministic Python functions for all monetary operations—gross pay, tax rates, and net pay calculations. This ensures 100% accuracy and auditability, eliminating the risk of an AI guessing a salary figure.
 
@@ -27,7 +27,7 @@ Conversely, we deploy AI agents where they excel: **Ambiguity and Reasoning**. T
 
 ## 3. Security Note: The Privacy Vault Pattern
 
-Security in Enlaz Sentinel is enforced through the "Privacy Vault" pattern, a middleware layer that sits between the user input and the outside world. Before any data is passed to an AI model or stored in logs, it must pass through the Vault.
+Security in this system is enforced through the "Privacy Vault" pattern, a middleware layer that sits between the user input and the outside world. Before any data is passed to an AI model or stored in logs, it must pass through the Vault.
 
 This layer performs two critical functions:
 1.  **PII Scrubbing**: Using rigorous regex patterns, it detects and redacts sensitive information like email addresses ($email$) and phone numbers ($phone$), replacing them with generic placeholders like `[REDACTED]`.

@@ -9,11 +9,11 @@ from chat_engine import PayrollChatbot
 from models import PayrollRecord, UserProfile
 
 
-st.set_page_config(page_title="Enlaz Sentinel | AI Payroll Orchestrator", layout="wide")
+st.set_page_config(page_title="AI Payroll Orchestrator", layout="wide")
 
-st.title("Enlaz Sentinel | AI Payroll Orchestrator")
+st.title("AI Payroll Orchestrator")
 st.caption(
-    "Secure, explainable payroll automation for freshers, freelancers, and fast-growing teams."
+    "Secure, explainable payroll automation for the modern workforce."
 )
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
@@ -150,53 +150,3 @@ if st.session_state.chat_history:
 else:
     st.info("Upload a timesheet or enable the sample data to start the pipeline.")
 
-st.divider()
-
-tabs = st.tabs(["System Flow", "AI vs Rules", "Security", "UX Ideas"])
-
-with tabs[0]:
-    st.markdown(
-        """
-```mermaid
-flowchart LR
-    A[Timesheet Input] --> B[OCR / Extraction]
-    B --> C[PrivacyVault Scrubbing]
-    C --> D[Deterministic Pay Calc]
-    D --> E[AI Auditor]
-    E --> F[Pay Slip + Chat]
-```
-"""
-    )
-
-with tabs[1]:
-    st.markdown(
-        """
-**AI tasks**
-- OCR/extraction from messy timesheets
-- Auditor reasoning for unusual overtime
-- Chat explanations for HR queries
-
-**Rules-based tasks**
-- Gross/net math + fixed tax rate
-- Status updates + approvals workflow
-"""
-    )
-
-with tabs[2]:
-    st.markdown(
-        """
-- PII scrubbed before any model calls
-- User profiles anonymized in prompts
-- Keys stored in `.env` and never logged
-"""
-    )
-
-with tabs[3]:
-    st.markdown(
-        """
-- Self-serve pay slip download (PDF)
-- HR approval queue with comments
-- Audit trend dashboard over time
-- Multi-currency + contractor invoices
-"""
-    )

@@ -1,0 +1,12 @@
+Employee ID: EMP-2024-001
+Project: Alpha-Redesign
+Week: Jan 15 - Jan 21
+
+Monday: 6 hours (Regular)
+Tuesday: 6 hours (Regular + 1h overlap)
+Wednesday: 6 hours (Regular)
+Thursday: 6 hours (Regular)
+Friday: 6 hours (Client deadline crunch)
+
+Total Hours: 30
+Notes: Need to discuss overtime approval with Sarah.
